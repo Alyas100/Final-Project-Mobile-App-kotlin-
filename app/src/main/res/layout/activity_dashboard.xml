@@ -1,0 +1,57 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🏃‍♂️ Fitness Dashboard"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvTotalWorkouts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Workouts: 0"/>
+
+    <TextView
+        android:id="@+id/tvCaloriesBurned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Calories Burned: 0 kcal"/>
+
+    <TextView
+        android:id="@+id/tvStepsTaken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steps Taken: 0"/>
+
+    <TextView
+        android:id="@+id/tvDistanceTraveled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance Traveled: 0 km"/>
+
+    <TextView
+        android:id="@+id/tvCaloriesIntake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories Intake: 0 kcal"/>
+
+    <Button
+        android:id="@+id/btnLogWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Workout"/>
+
+    <Button
+        android:id="@+id/btnTrackCalories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Track Calories"/>
+
+</LinearLayout>
