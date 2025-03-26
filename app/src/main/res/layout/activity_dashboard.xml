@@ -1,57 +1,83 @@
-<LinearLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🏃‍♂️ Fitness Dashboard"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/tvTotalWorkouts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Workouts: 0"/>
-
-    <TextView
-        android:id="@+id/tvCaloriesBurned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Calories Burned: 0 kcal"/>
-
-    <TextView
-        android:id="@+id/tvStepsTaken"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Steps Taken: 0"/>
-
-    <TextView
-        android:id="@+id/tvDistanceTraveled"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Distance Traveled: 0 km"/>
-
-    <TextView
-        android:id="@+id/tvCaloriesIntake"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calories Intake: 0 kcal"/>
-
-    <Button
-        android:id="@+id/btnLogWorkout"
+    <!-- Main Content -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Log Workout"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnTrackCalories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Track Calories"/>
+        <!-- Toolbar (For Hamburger Menu) -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:title="Fitness Dashboard"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏃‍♂️ Fitness Dashboard"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvTotalWorkouts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Workouts: 0"/>
+
+        <TextView
+            android:id="@+id/tvStepsTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Steps Taken: 0"/>
+
+        <TextView
+            android:id="@+id/tvDistanceTraveled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distance Traveled: 0 km"/>
+
+        <TextView
+            android:id="@+id/tvCaloriesBurned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Calories Burned: 0 kcal"/>
+
+        <TextView
+            android:id="@+id/tvCaloriesIntake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calories Intake: 0 kcal"/>
+
+        <Button
+            android:id="@+id/btnLogWorkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Workout"/>
+
+        <Button
+            android:id="@+id/btnLogCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Log Calories"/>
+
+    </LinearLayout>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

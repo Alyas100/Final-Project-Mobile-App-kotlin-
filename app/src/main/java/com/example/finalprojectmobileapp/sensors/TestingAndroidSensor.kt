@@ -1,4 +1,4 @@
-package com.example.finalprojectmobileapp.activities
+package com.example.finalprojectmobileapp.sensors
 
 import android.app.AlertDialog
 import android.content.Context
@@ -14,13 +14,14 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.finalprojectmobileapp.analytics.FirebaseAnalyticsHelper
 import com.example.finalprojectmobileapp.R
-import org.w3c.dom.Text
+import com.google.firebase.analytics.FirebaseAnalytics
 
 // TestingAndroidSensor implements SensorEventListener interface, and implement all of its abstract method even just declared without actually using it because it is a must when implementing interface.
-class TestingAndroidSensor : AppCompatActivity(), SensorEventListener {
+class TestingAndroidSensor : AppCompatActivity(), SensorEventListener,
+    com.example.finalprojectmobileapp.sensors.Sensor {
 
-    private var stepCounterSensor: Sensor? = null   // holds a reference to the step counter sensor (TYPE_STEP_COUNTER).
     private var initialStepCount: Int = -1  // Stores the first detected step count
     private var totalStepsToday: Int = 0
 
@@ -59,14 +60,6 @@ class TestingAndroidSensor : AppCompatActivity(), SensorEventListener {
 
 
 
-    /*
-
-    // This is a lazy-initialized property that holds a reference to the step detector sensor (TYPE_STEP_DETECTOR), retrieved using sensorManager.
-    private val sensor: Sensor? by lazy {
-        sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
-    }
-
-     */
 
 
 
@@ -93,7 +86,7 @@ class TestingAndroidSensor : AppCompatActivity(), SensorEventListener {
 
 
 
-        // Initialize SharedPreferences
+        // Initialize SharedPreferences (for simple storage purpose)
         sharedPreferences = getSharedPreferences("StepCounterPrefs", Context.MODE_PRIVATE)
 
 
@@ -153,6 +146,7 @@ class TestingAndroidSensor : AppCompatActivity(), SensorEventListener {
     // But if user switch to another app or lock the screen, the activity is just paused—not destroyed
     // So to prevent battery drain, need to implement onPause()
     // onDestroy(), onPause(), onResume() are automatically triggered by android when appropriate event happens
+    @Override
     override fun onDestroy() {  // The function is wrapped with override because it changing the behavior of its parent class in this case is appcompatactivity() class.
         // Calls the parent class's onDestroy() original logic (non-override one) so it can avoid unexpected issues with activity not saving its ui state destroyed properly (the animations) before doing the custom logic below
         super.onDestroy()
@@ -161,6 +155,7 @@ class TestingAndroidSensor : AppCompatActivity(), SensorEventListener {
 
 
     // Is needed to stop sensor updates when the app is not in the foreground, preventing battery drain.
+    @Override
     override fun onPause() {
         super.onPause()
         sensorManager.unregisterListener(this) // Stops tracking to save battery
@@ -168,9 +163,15 @@ class TestingAndroidSensor : AppCompatActivity(), SensorEventListener {
 
 
     // Ensures the sensor starts tracking again when the user returns to the app.
+    @Override
     override fun onResume() {
         super.onResume()
         sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI)
+
+        // Log screen view event in Firebase Analytics
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "TestingAndroidSensor")
+        FirebaseAnalyticsHelper.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
     }
 
 
@@ -208,9 +209,17 @@ class TestingAndroidSensor : AppCompatActivity(), SensorEventListener {
             // debug statement to show steps today
             Log.d("StepCounter", "Today's steps: $totalStepsToday")
 
-            // Update UI
-            findViewById<TextView>(R.id.stepCountTextView).text = "Steps: $totalStepsToday"
+
         }
+    }
+
+
+    // Update the UI with Total Steos
+    // provide concrete implementation of the interface
+    @Override
+    override fun updateUI() {
+        // Update UI
+        findViewById<TextView>(R.id.stepCountTextView).text = "Steps: $totalStepsToday"
     }
 
 

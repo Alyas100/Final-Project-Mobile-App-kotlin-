@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">FinalProjectMobileApp</string>
+    <string name="default_web_client_id">54170183508-riu1i1urm558…s.googleusercontent.com</string>
 
-    <string name="default_web_client_id">457982086630-ogk4nfmr1smioc33kerqnffq0vd63v6u.apps.googleusercontent.com</string>
+<!--    these two below for accessibility for screen reader, hints or etc, it used by ActionBarDrawerToggle-->
+    <string name="open">Open Navigation</string>
+    <string name="close">Close Navigation</string>
 </resources>

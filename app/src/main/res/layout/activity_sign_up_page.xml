@@ -73,27 +73,8 @@
         android:textColor="@android:color/white"
         android:layout_marginBottom="16dp"/>
 
-    <!-- OR Divider -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="───────── OR ─────────"
-        android:gravity="center"
-        android:textSize="14sp"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginBottom="16dp"/>
 
-    <!-- Google Sign-Up Button -->
-    <Button
-        android:id="@+id/btnGoogleSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🔵 Sign up with Google"
-        android:textSize="16sp"
-        android:padding="12dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="16dp"/>
+
 
     <!-- Login Link -->
     <TextView

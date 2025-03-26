@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
+
+    // firebase crashlytics
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -44,6 +47,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.play.services.fido)
+    implementation(libs.googleid)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -59,21 +66,30 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-firestore")
 
-    // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation("com.google.firebase:firebase-auth:22.1.2") // Latest Firebase Auth
-    implementation("com.google.android.gms:play-services-auth:20.7.0") // Google Identity Services
 
-    implementation("androidx.activity:activity-ktx:1.7.2")
+    // dependencies for google identity services for authnetication user sign in with google
+        // Google Identity Services (for Google Sign-In with Credential Manager)
+    // Add these dependencies
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.0")
+    implementation("com.google.android.gms:play-services-auth:20.6.0")  // google services
+    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.0") // Google Identity
 
-    // Add the Health Connect SDK to your app
-    implementation("androidx.health.connect:connect-client:1.1.0-alpha12")
+    // Firebase Crashlytics
+    implementation("com.google.firebase:firebase-crashlytics:18.3.7")
+
+    // Firebase Analytics
+    implementation("com.google.firebase:firebase-analytics:21.5.0")
+
+    // Two dependencies below is coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")   // this core version required for coroutine support.
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")    // this android version enables coroutines on Android for UI-related tasks.
 
 
 
 
 
-    // Add the dependencies for any other desired Firebase products
-    // https://firebase.google.com/docs/android/setup#available-libraries
-    implementation(kotlin("script-runtime"))
+
+
+
+
 }

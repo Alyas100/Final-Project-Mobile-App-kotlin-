@@ -25,12 +25,7 @@
         android:textSize="18sp"
         android:layout_marginBottom="20dp"/>
 
-    <!-- Reset Button -->
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset Steps"/>
+
 
     <!-- text placeholder to check if the sensor available on user device -->
     <TextView

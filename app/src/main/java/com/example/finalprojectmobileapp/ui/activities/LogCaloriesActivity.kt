@@ -1,4 +1,4 @@
-package com.example.finalprojectmobileapp.activities
+package com.example.finalprojectmobileapp.ui.activities
 
 import android.os.Bundle
 import android.util.Log
@@ -7,37 +7,49 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalprojectmobileapp.R
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
+import com.example.finalprojectmobileapp.analytics.FirebaseAnalyticsHelper
+import com.example.finalprojectmobileapp.data.models.Calories
+import com.example.finalprojectmobileapp.data.repositories.CaloriesRepo
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.auth.FirebaseAuth
 
-class TrackCaloriesActivity : AppCompatActivity() {
-
-    // Firestore instance
-    private val db = Firebase.firestore
+class LogCaloriesActivity : AppCompatActivity() {
 
     private lateinit var etFoodName: EditText
     private lateinit var etCaloriesIntake: EditText
     private lateinit var btnSaveCalories: Button
 
+    private val caloriesRepo = CaloriesRepo() // Repository instance
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_track_calories)
+        setContentView(R.layout.activity_log_calories)
 
-        etFoodName = findViewById(R.id.etFoodName) // Added food name input
+
+        // Log screen view event in Firebase Analytics
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "LogCaloriesActivity")
+        FirebaseAnalyticsHelper.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
+
+
+        etFoodName = findViewById(R.id.etFoodName)
         etCaloriesIntake = findViewById(R.id.etCalories)
         btnSaveCalories = findViewById(R.id.btnSaveFood)
 
         btnSaveCalories.setOnClickListener {
-            saveCalories()
+            val userId = FirebaseAuth.getInstance().currentUser?.uid
+            if (userId != null) {
+                saveCalories(userId)
+            } else {
+                Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun saveCalories() {
-
+    private fun saveCalories(userId: String) {
         val foodName = etFoodName.text.toString().trim()
         val caloriesStr = etCaloriesIntake.text.toString().trim()
 
-        // Input validation
         if (foodName.isEmpty()) {
             Toast.makeText(this, "Please enter food name", Toast.LENGTH_SHORT).show()
             return
@@ -53,25 +65,18 @@ class TrackCaloriesActivity : AppCompatActivity() {
             return
         }
 
-        // Create calorie log data
-        val calorieData = hashMapOf(
-            "foodName" to foodName, // Added food name
-            "calories" to calories,
-            "timestamp" to System.currentTimeMillis()
-        )
+        val calorieEntry = Calories(foodName, calories, System.currentTimeMillis())
 
-        // Save to Firestore
-        db.collection("calories")
-            .add(calorieData)
-            .addOnSuccessListener { documentReference ->
-                Log.d("Firestore", "Calorie entry added with ID: ${documentReference.id}")
+        caloriesRepo.saveCalories(userId, calorieEntry,
+            onSuccess = {
                 Toast.makeText(this, "Calories saved!", Toast.LENGTH_SHORT).show()
                 etFoodName.text.clear()
                 etCaloriesIntake.text.clear()
-            }
-            .addOnFailureListener { e ->
+            },
+            onFailure = { e ->
                 Log.e("Firestore", "Error adding calories", e)
                 Toast.makeText(this, "Failed to save calories", Toast.LENGTH_SHORT).show()
             }
+        )
     }
 }

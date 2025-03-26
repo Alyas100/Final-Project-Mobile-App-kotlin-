@@ -2,10 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!--    This is the -->
+<!--    This is for sensor data (in this case for step counter)-->
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
 
+<!--    this for high accuracy like gps access from sensor-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<!--    this for low accuracy like wifi and cellular tower-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
+
+        android:name=".analytics.MyApplication"
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,9 +24,9 @@
         android:theme="@style/Theme.FinalProjectMobileApp"
         tools:targetApi="31">
 
-        <!-- Main activity -->
+<!--        here is activity that first starts when launching the app-->
         <activity
-            android:name=".activities.TestingAndroidSensor"
+            android:name=".auth.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,16 +35,16 @@
         </activity>
 
         <!-- Other activities -->
-        <activity android:name=".activities.SignupActivity" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.LogWorkoutActivity" />
-        <activity android:name=".activities.TrackCaloriesActivity" />
+        <activity android:name=".auth.activities.SignupActivity" />
+        <activity android:name=".sensors.TestingAndroidSensor" />
+        <activity android:name=".ui.activities.admin.AdminDashboardActivity" />
+        <activity android:name=".ui.activities.LogWorkoutActivity" />
+        <activity android:name=".ui.activities.LogCaloriesActivity" />
+        <activity android:name=".ui.activities.admin.ViewUserWorkoutsActivity" />
+        <activity android:name=".ui.activities.admin.DeleteUserActivity" />
+        <activity android:name=".ui.activities.admin.EditDeleteWorkoutActivity" />
+        <activity android:name=".ui.activities.admin.ViewUsersActivity" />
 
     </application>
-
-    <!-- Declare Health Connect API access -->
-    <queries>
-        <package android:name="com.google.android.apps.healthdata" />
-    </queries>
 
 </manifest>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,27 +10,35 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Distance Tracker"
+        android:text="Calorie Tracker"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
-    <!-- Distance covered Display -->
+    <!-- Distance Display -->
     <TextView
         android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Distance: 0 meters"
+        android:text="Distance: 0.00 meters"
         android:textSize="18sp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="10dp"/>
 
-    <!-- Sensor Status (to check if Step Counter exists) -->
+    <!-- Step Count Display -->
     <TextView
-        android:id="@+id/sensorStatusText"
+        android:id="@+id/stepCountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Checking sensors..."
+        android:text="Steps: 0"
         android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:padding="16dp"/>
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Calorie Burn Display -->
+    <TextView
+        android:id="@+id/calorieTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories Burned: 0 kcal"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_red_dark"/>
 </LinearLayout>
