@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalprojectmobileapp.R
-import com.example.finalprojectmobileapp.ui.activities.DashboardActivity
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.auth.api.identity.GetSignInIntentRequest
@@ -18,8 +17,10 @@ import androidx.activity.result.IntentSenderRequest
 import com.example.finalprojectmobileapp.analytics.FirebaseAnalyticsHelper
 import com.example.finalprojectmobileapp.auth.email_logic.EmailAuthManager
 import com.example.finalprojectmobileapp.ui.activities.admin.AdminDashboardActivity
+import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.CommonActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
@@ -32,25 +33,16 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
 
-
-        // Log screen view event in Firebase Analytics
         val bundle = Bundle()
         bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "LoginActivity")
         FirebaseAnalyticsHelper.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
 
-
-        // Initialize the Google Identity client
         signInClient = Identity.getSignInClient(this)
 
-        // Google Sign-In button
         findViewById<Button>(R.id.btnGoogleSignIn).setOnClickListener {
             signInWithGoogle()
         }
 
-
-
-
-        // Email/Password Authentication
         val emailAuthManager = EmailAuthManager(this)
         findViewById<Button>(R.id.btnLogin).setOnClickListener {
             val email = findViewById<EditText>(R.id.etEmail).text.toString().trim()
@@ -64,9 +56,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Check if the entered email belongs to an admin before logging in.
-     */
     private fun checkIfAdmin(email: String, password: String, emailAuthManager: EmailAuthManager) {
         db.collection("admins").whereEqualTo("email", email).get()
             .addOnSuccessListener { documents ->
@@ -82,7 +71,6 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Invalid admin credentials", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    // If not an admin, proceed with normal user login
                     loginAsUser(email, password, emailAuthManager)
                 }
             }
@@ -92,13 +80,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     /**
-     * Log in as a regular user if they are not an admin.
+     * loginAsUser - Attempts to log in as a regular user
+     * Redirects to the common activity upon success
      */
     private fun loginAsUser(email: String, password: String, emailAuthManager: EmailAuthManager) {
         emailAuthManager.loginWithEmail(email, password) { success ->
             if (success) {
                 Toast.makeText(this, "User login successful!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, DashboardActivity::class.java))
+                startActivity(Intent(this, CommonActivity::class.java).apply {
+                    putExtra("destination", "dashboard")
+                })
                 finish()
             } else {
                 Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
@@ -106,9 +97,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Google Sign-In Handler
-     */
     private val signInLauncher = registerForActivityResult(
         ActivityResultContracts.StartIntentSenderForResult()
     ) { result ->
@@ -116,7 +104,7 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val credential = signInClient.getSignInCredentialFromIntent(result.data)
                 val idToken = credential.googleIdToken
-                val email = credential.id // Get Google account email
+                val email = credential.id
 
                 if (idToken != null) {
                     checkIfGoogleAdmin(email, idToken)
@@ -128,7 +116,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     /**
-     * Initiates Google Sign-In
+     * signInWithGoogle - Initiates Google Sign-In process
      */
     private fun signInWithGoogle() {
         val request = GetSignInIntentRequest.builder()
@@ -150,7 +138,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     /**
-     * Check if the Google Sign-In email belongs to an admin
+     * checkIfGoogleAdmin - Checks if the signed-in Google account belongs to an admin
      */
     private fun checkIfGoogleAdmin(email: String?, idToken: String) {
         if (email == null) return
@@ -171,11 +159,24 @@ class LoginActivity : AppCompatActivity() {
     }
 
     /**
-     * Handles Google login for regular users
+     * handleGoogleToken - Handles successful Google login for regular users
      */
     private fun handleGoogleToken(idToken: String) {
-        Log.d(TAG, "Got ID token: $idToken")
-        startActivity(Intent(this, DashboardActivity::class.java))
-        finish()
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign-in successful
+                    Log.d(TAG, "Google sign-in to Firebase successful")
+                    Toast.makeText(this, "Google sign-in successful!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, CommonActivity::class.java))
+                    finish()
+                } else {
+                    // Sign-in failed
+                    Log.e(TAG, "Google sign-in to Firebase failed", task.exception)
+                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
+
 }

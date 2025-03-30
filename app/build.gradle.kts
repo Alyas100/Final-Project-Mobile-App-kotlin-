@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.googleid)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.play.services.location)
+    implementation(libs.generativeai)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -83,6 +84,21 @@ dependencies {
     // Two dependencies below is coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")   // this core version required for coroutine support.
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")    // this android version enables coroutines on Android for UI-related tasks.
+
+    // This is material components dependancy
+    implementation("com.google.android.material:material:1.9.0")
+
+
+    // This is gemini ai dependencies
+    // The retrofit here is used to call the Gemini AI API
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // This is Gson that heps parse JSON response from the ai server
+    implementation("com.google.code.gson:gson:2.8.9")
+
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+
 
 
 

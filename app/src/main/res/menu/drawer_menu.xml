@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Drawer Navigation Items -->
     <item
         android:id="@+id/nav_profile"
-        android:title="Profile"
-        />
+        android:title="Profile" />
+
     <item
         android:id="@+id/nav_settings"
-        android:title="Settings"
-        />
+        android:title="Settings" />
+
     <item
         android:id="@+id/nav_logout"
-        android:title="Logout"
-        />
+        android:title="Logout" />
+
+
+    <!-- Toolbar AI Button -->
+    <item
+        android:id="@+id/action_gemini"
+        android:icon="@drawable/gemini_icon"
+        android:title="Gemini AI"
+        app:showAsAction="always" />
+
 </menu>

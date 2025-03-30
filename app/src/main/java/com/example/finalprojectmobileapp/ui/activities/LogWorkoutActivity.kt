@@ -18,32 +18,33 @@ class LogWorkoutActivity : AppCompatActivity() {
     private lateinit var etWorkoutType: EditText
     private lateinit var etDuration: EditText
     private lateinit var btnSaveWorkout: Button
-    private lateinit var workoutRepo: WorkoutRepo // Use WorkoutRepo instead of direct Firestore access
+    private lateinit var workoutRepo: WorkoutRepo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_workout)
-
 
         // Log screen view event in Firebase Analytics
         val bundle = Bundle()
         bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "LogWorkoutActivity")
         FirebaseAnalyticsHelper.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
 
-
         etWorkoutType = findViewById(R.id.etWorkoutType)
         etDuration = findViewById(R.id.etDuration)
         btnSaveWorkout = findViewById(R.id.btnSaveWorkout)
 
-        workoutRepo = WorkoutRepo() // Initialize repository
-
+        workoutRepo = WorkoutRepo()
 
         btnSaveWorkout.setOnClickListener {
-            val userId = FirebaseAuth.getInstance().currentUser?.uid
+            val firebaseUser = FirebaseAuth.getInstance().currentUser
+            val userId = firebaseUser?.uid
+
+            // Check if user ID is available
             if (userId != null) {
                 saveWorkout(userId)
             } else {
                 Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+                Log.e("LogWorkoutActivity", "Failed to get user ID: User not logged in")
             }
         }
     }

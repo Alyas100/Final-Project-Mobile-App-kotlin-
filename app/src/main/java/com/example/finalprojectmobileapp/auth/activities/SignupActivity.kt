@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalprojectmobileapp.R
 import com.example.finalprojectmobileapp.analytics.FirebaseAnalyticsHelper
-import com.example.finalprojectmobileapp.ui.activities.DashboardActivity
+import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.CommonActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -78,8 +78,7 @@ class SignupActivity : AppCompatActivity() {
                     Toast.makeText(this, "Sign-up successful!", Toast.LENGTH_SHORT).show()
 
                     // Navigate to Main Dashboard after successful sign-up
-                    val intent = Intent(this, DashboardActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, CommonActivity::class.java))
                     finish() // Prevents returning to sign-up screen on back press
 
                 } else {
