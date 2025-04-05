@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +42,12 @@ class LoginActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnGoogleSignIn).setOnClickListener {
             signInWithGoogle()
+        }
+
+        // goes to sign up activity when the sign up link clicked
+        findViewById<TextView>(R.id.btnSignup).setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
         }
 
         val emailAuthManager = EmailAuthManager(this)

@@ -53,7 +53,7 @@ class SignupActivity : AppCompatActivity() {
 
 
 
-        // Set up Sign Up button using default way like custom email and paassword with click listener
+        // Set up Sign Up button using default way like custom email and password with click listener
         signUpButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
