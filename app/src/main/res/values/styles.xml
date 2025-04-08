@@ -1,0 +1,6 @@
+<resources>
+    <style name="ButtonShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+</resources>

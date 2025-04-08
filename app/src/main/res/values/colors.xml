@@ -6,4 +6,10 @@
     <color name="blue">#0000FF</color>
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
-</resources>
+
+
+        <color name="fitnessGreen">#32CD32</color> <!-- Fresh green -->
+        <color name="fitnessOrange">#FFA500</color> <!-- Bright orange -->
+        <color name="cardBackground">#FFFFFF</color> <!-- Light background for cards -->
+
+    </resources>
