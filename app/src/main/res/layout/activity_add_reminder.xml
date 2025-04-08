@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Activity (e.g., Breakfast) -->
+    <EditText
+        android:id="@+id/activityInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Activity (e.g., Breakfast)"
+        android:inputType="text" />
+
+    <!-- Time (e.g., 8:30 AM) -->
+    <EditText
+        android:id="@+id/timeInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Time (e.g., 8:30 AM)"
+        android:inputType="time" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveReminderButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Reminder" />
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:weightSum="1">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Reminders"
+        android:textSize="24sp"
+        android:paddingBottom="16dp"
+        android:gravity="center" />
+
+    <!-- General title-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meals"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Reminder List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reminderListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Add Reminder Button (Plus Icon) -->
+    <ImageView
+        android:id="@+id/addReminderButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="Add Reminder"
+        android:background="@drawable/circular_button_background" />
+
+</LinearLayout>

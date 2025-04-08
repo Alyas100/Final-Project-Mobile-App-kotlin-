@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true">
+
+    <!-- Horizontal layout for title, time, and switch -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Vertical layout for title and time -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Reminder Title -->
+            <TextView
+                android:id="@+id/reminderTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breakfast"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <!-- Reminder Time -->
+            <TextView
+                android:id="@+id/reminderTimeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:13 AM"
+                android:textColor="#CCCCCC"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Switch on the right -->
+        <Switch
+            android:id="@+id/reminderSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:thumbTint="@color/switch_thumb_color"
+            android:trackTint="@color/switch_track_color" />
+    </LinearLayout>
+</LinearLayout>

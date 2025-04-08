@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.finalprojectmobileapp.R
 import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.DashboardFragmentPage
 import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.HistoryFragmentPage
+import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.MoreFragmentPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -37,6 +38,7 @@ class CommonActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_dashboard -> replaceFragment(DashboardFragmentPage())
                 R.id.nav_diary -> replaceFragment(HistoryFragmentPage())
+                R.id.nav_more -> replaceFragment(MoreFragmentPage())
             }
             true
         }

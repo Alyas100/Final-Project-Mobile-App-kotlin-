@@ -10,6 +10,13 @@
 <!--    this for low accuracy like wifi and cellular tower-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+<!--    this is for permission to use alarm to set local notifications-->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+
+
     <application
 
         android:name=".analytics.MyApplication"
@@ -39,10 +46,9 @@
         <activity android:name=".sensors.TestingAndroidSensor" />
         <activity android:name=".gemini_AI.GeminiActivity" />
         <activity android:name=".ui.activities.history.HistoryActivity" />
-        <activity android:name=".ui.activities.ProfileActivity" />
-        <activity android:name=".ui.activities.SettingsActivity" />
         <activity android:name=".ui.activities.bottom_navigation.CommonActivity" />
-        <activity android:name=".ui.activities.bottom_navigation.fragments.DashboardFragmentPage" />
+        <activity android:name=".ui.activities.AddReminderActivity" />
+        <activity android:name=".ui.activities.RemindersActivity" />
         <activity android:name=".ui.activities.admin.AdminDashboardActivity" />
         <activity android:name=".ui.activities.LogWorkoutActivity" />
         <activity android:name=".ui.activities.LogCaloriesActivity" />
@@ -50,6 +56,10 @@
         <activity android:name=".ui.activities.admin.DeleteUserActivity" />
         <activity android:name=".ui.activities.admin.EditDeleteWorkoutActivity" />
         <activity android:name=".ui.activities.admin.ViewUsersActivity" />
+
+        <receiver android:name=".ui.activities.local_notifications.ReminderReceiver"
+            android:exported="false" />
+
 
     </application>
 

@@ -37,7 +37,9 @@ class LogCaloriesActivity : AppCompatActivity() {
         btnSaveCalories = findViewById(R.id.btnSaveFood)
 
         btnSaveCalories.setOnClickListener {
-            val userId = FirebaseAuth.getInstance().currentUser?.uid
+            val firebaseUser = FirebaseAuth.getInstance().currentUser
+            val userId = firebaseUser?.uid
+
             if (userId != null) {
                 saveCalories(userId)
             } else {

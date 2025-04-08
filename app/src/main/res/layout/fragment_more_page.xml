@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.activities.bottom_navigation.fragments.MoreFragmentPage">
+
+
+    <!-- Reminders -->
+    <TextView
+        android:id="@+id/reminders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reminders"
+        android:drawableStart="@android:drawable/ic_lock_idle_alarm"
+        android:drawablePadding="12dp"
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textSize="18sp" />
+
+    <!-- History -->
+    <TextView
+        android:id="@+id/history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:drawableStart="@android:drawable/ic_menu_recent_history"
+        android:drawablePadding="12dp"
+        android:padding="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textSize="18sp" />
+
+</LinearLayout>
