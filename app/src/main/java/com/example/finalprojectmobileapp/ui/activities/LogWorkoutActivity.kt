@@ -1,6 +1,8 @@
 package com.example.finalprojectmobileapp.ui.activities
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -71,10 +73,15 @@ class LogWorkoutActivity : AppCompatActivity() {
             userId,
             workout,
             onSuccess = {
-                Log.d("Firestore", "Workout added successfully")
-                Toast.makeText(this, "Workout saved!", Toast.LENGTH_SHORT).show()
-                etWorkoutType.text.clear()
-                etDuration.text.clear()
+                Toast.makeText(this, "Calories saved!", Toast.LENGTH_SHORT).show()
+
+                // Add delay for smoother UX (1 second)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    etWorkoutType.text.clear()
+                    etDuration.text.clear()
+
+                    finish()
+                }, 1000) // 1000 milliseconds = 1 second
             },
             onFailure = { e ->
                 Log.e("Firestore", "Error adding workout", e)

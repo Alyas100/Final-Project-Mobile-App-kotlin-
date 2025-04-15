@@ -3,12 +3,8 @@
     <item
         android:id="@+id/nav_dashboard"
         android:icon="@drawable/dashboard_menu_icon"
-        android:title="Dashboard" />
+        android:title="Home" />
 
-    <item
-        android:id="@+id/nav_diary"
-        android:icon="@drawable/diary_menu_icon"
-        android:title="Diary" />
 
     <item
         android:id="@+id/nav_add"
@@ -16,10 +12,7 @@
         android:title="Add"
         android:enabled="true" />
 
-    <item
-        android:id="@+id/nav_plans"
-        android:icon="@drawable/plans_menu_icon"
-        android:title="Plans" />
+
 
     <item
         android:id="@+id/nav_more"

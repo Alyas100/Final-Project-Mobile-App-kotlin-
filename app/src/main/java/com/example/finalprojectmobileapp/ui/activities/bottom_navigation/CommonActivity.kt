@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.finalprojectmobileapp.R
+import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.AddFragmentPage
 import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.DashboardFragmentPage
-import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.HistoryFragmentPage
 import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.MoreFragmentPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -37,7 +37,7 @@ class CommonActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_dashboard -> replaceFragment(DashboardFragmentPage())
-                R.id.nav_diary -> replaceFragment(HistoryFragmentPage())
+                R.id.nav_add -> replaceFragment(AddFragmentPage())
                 R.id.nav_more -> replaceFragment(MoreFragmentPage())
             }
             true

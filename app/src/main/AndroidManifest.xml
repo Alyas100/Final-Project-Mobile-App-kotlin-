@@ -43,12 +43,12 @@
 
         <!-- Other activities -->
         <activity android:name=".auth.activities.SignupActivity" />
-        <activity android:name=".sensors.TestingAndroidSensor" />
-        <activity android:name=".gemini_AI.GeminiActivity" />
-        <activity android:name=".ui.activities.history.HistoryActivity" />
         <activity android:name=".ui.activities.bottom_navigation.CommonActivity" />
+        <activity android:name=".sensors.TestingAndroidSensor" />
+        <activity android:name=".ui.activities.HistoryActivity" />
         <activity android:name=".ui.activities.AddReminderActivity" />
         <activity android:name=".ui.activities.RemindersActivity" />
+        <activity android:name=".ui.activities.SettingsActivity" />
         <activity android:name=".ui.activities.admin.AdminDashboardActivity" />
         <activity android:name=".ui.activities.LogWorkoutActivity" />
         <activity android:name=".ui.activities.LogCaloriesActivity" />

@@ -1,6 +1,8 @@
 package com.example.finalprojectmobileapp.ui.activities
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -72,8 +74,14 @@ class LogCaloriesActivity : AppCompatActivity() {
         caloriesRepo.saveCalories(userId, calorieEntry,
             onSuccess = {
                 Toast.makeText(this, "Calories saved!", Toast.LENGTH_SHORT).show()
-                etFoodName.text.clear()
-                etCaloriesIntake.text.clear()
+
+                // Add delay for smoother UX (1 second)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    etFoodName.text.clear()
+                    etCaloriesIntake.text.clear()
+
+                    finish()
+                }, 1000) // 1000 milliseconds = 1 second
             },
             onFailure = { e ->
                 Log.e("Firestore", "Error adding calories", e)

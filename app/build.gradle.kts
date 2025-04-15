@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.play.services.location)
     implementation(libs.generativeai)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -98,6 +99,11 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.9")
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+
+    implementation("com.google.android.material:material:1.12.0")
+
+    // added lottie library for render animations
+    implementation ("com.airbnb.android:lottie:6.4.0")
 
 
 

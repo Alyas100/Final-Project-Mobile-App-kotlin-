@@ -3,9 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Drawer Navigation Items -->
-    <item
-        android:id="@+id/nav_profile"
-        android:title="Profile" />
 
     <item
         android:id="@+id/nav_settings"
@@ -16,11 +13,5 @@
         android:title="Logout" />
 
 
-    <!-- Toolbar AI Button -->
-    <item
-        android:id="@+id/action_gemini"
-        android:icon="@drawable/gemini_icon"
-        android:title="Gemini AI"
-        app:showAsAction="always" />
 
 </menu>
