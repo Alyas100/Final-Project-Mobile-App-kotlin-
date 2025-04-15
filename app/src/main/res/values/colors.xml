@@ -1,9 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple_500">#6200EE</color>
     <color name="blue">#0000FF</color>
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
+
+    <!-- Fitness Colors -->
+    <color name="fitnessGreen">#32CD32</color> <!-- Fresh green -->
+    <color name="fitnessOrange">#FFA500</color> <!-- Bright orange -->
+
+    <!-- Card Background Color -->
+    <color name="cardBackground">#FFFFFF</color> <!-- Light background for cards -->
+
+    <!-- Primary Blue Color -->
+    <color name="blue_primary">#2196F3</color> <!-- This is a standard material blue -->
+
+    <!-- Dark Mode Colors -->
+    <color name="black_dark">#212121</color> <!-- Dark color for dark mode -->
+    <color name="white_dark">#121212</color> <!-- Dark background color for dark mode -->
+    <color name="fitnessGreen_dark">#1B5E20</color> <!-- Darker fresh green for dark mode -->
+    <color name="blue_primary_dark">#1565C0</color> <!-- Darker primary blue for dark mode -->
+
+        <!-- Dark Blue Color for Dark Mode -->
+        <color name="blue_dark">#0D47A1</color> <!-- Darker blue for dark mode -->
+
+    <color name="blue_light">#BBDEFB</color>    <!-- Light Blue Color -->
+    <color name="gray_dark">#212121</color> <!-- Dark Gray Color -->
 </resources>

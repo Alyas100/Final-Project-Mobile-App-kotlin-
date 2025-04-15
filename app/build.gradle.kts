@@ -99,7 +99,7 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
 
-
+    implementation ("com.airbnb.android:lottie:6.4.0")
 
 
 
