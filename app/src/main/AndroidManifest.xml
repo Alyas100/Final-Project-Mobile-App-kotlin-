@@ -10,6 +10,9 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="false" />
+
+
     <application
         android:name=".analytics.MyApplication"
         android:allowBackup="true"
@@ -23,7 +26,7 @@
         android:theme="@style/Theme.FinalProjectMobileApp"
         tools:targetApi="31">
 
-        <!-- ✅ Custom SplashActivity as the launcher -->
+        <!--  Custom SplashActivity as the launcher -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -34,7 +37,7 @@
             </intent-filter>
         </activity>
 
-        <!-- 👇 LoginActivity (NOT a launcher anymore) -->
+        <!--  LoginActivity  -->
         <activity
             android:name=".auth.activities.LoginActivity"
             android:exported="true" />
@@ -42,18 +45,13 @@
         <!-- Other activities -->
         <activity android:name=".auth.activities.SignupActivity" />
         <activity android:name=".ui.activities.bottom_navigation.CommonActivity" />
-        <activity android:name=".sensors.TestingAndroidSensor" />
         <activity android:name=".ui.activities.HistoryActivity" />
         <activity android:name=".ui.activities.AddReminderActivity" />
         <activity android:name=".ui.activities.RemindersActivity" />
         <activity android:name=".ui.activities.SettingsActivity" />
-        <activity android:name=".ui.activities.admin.AdminDashboardActivity" />
         <activity android:name=".ui.activities.LogWorkoutActivity" />
         <activity android:name=".ui.activities.LogCaloriesActivity" />
-        <activity android:name=".ui.activities.admin.ViewUserWorkoutsActivity" />
-        <activity android:name=".ui.activities.admin.DeleteUserActivity" />
-        <activity android:name=".ui.activities.admin.EditDeleteWorkoutActivity" />
-        <activity android:name=".ui.activities.admin.ViewUsersActivity" />
+
 
         <receiver
             android:name=".ui.activities.local_notifications.ReminderReceiver"

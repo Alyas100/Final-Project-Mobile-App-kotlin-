@@ -68,7 +68,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvSteps"
+                        android:id="@+id/stepCountTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -154,7 +154,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvCalories"
+                        android:id="@+id/calorieTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -163,6 +163,14 @@
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="See plan below to get started !"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <!-- YouTubePlayerView instead of WebView -->
             <FrameLayout

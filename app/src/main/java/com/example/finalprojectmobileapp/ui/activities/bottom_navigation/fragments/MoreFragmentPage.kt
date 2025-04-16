@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import com.example.finalprojectmobileapp.R
 import com.example.finalprojectmobileapp.auth.activities.LoginActivity
 import com.example.finalprojectmobileapp.ui.activities.HistoryActivity
-import com.example.finalprojectmobileapp.ui.activities.ProfileActivity
 import com.example.finalprojectmobileapp.ui.activities.RemindersActivity
 import com.example.finalprojectmobileapp.ui.activities.SettingsActivity
 import com.example.finalprojectmobileapp.ui.activities.ai.fragment.GeminiSidebarFragment
