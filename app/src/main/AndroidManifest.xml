@@ -2,34 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!--    This is for sensor data (in this case for step counter)-->
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-
-<!--    this for high accuracy like gps access from sensor-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<!--    this for low accuracy like wifi and cellular tower-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
-<!--    this is for permission to use alarm to set local notifications-->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
-    <!--   added internet permission here-->
     <uses-permission android:name="android.permission.INTERNET" />
 
-
-
-
     <application
-
-        android:hardwareAccelerated="true"
-
         android:name=".analytics.MyApplication"
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Dashboard"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -37,15 +23,21 @@
         android:theme="@style/Theme.FinalProjectMobileApp"
         tools:targetApi="31">
 
-<!--        here is activity that first starts when launching the app-->
+        <!-- ✅ Custom SplashActivity as the launcher -->
         <activity
-            android:name=".auth.activities.LoginActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- 👇 LoginActivity (NOT a launcher anymore) -->
+        <activity
+            android:name=".auth.activities.LoginActivity"
+            android:exported="true" />
 
         <!-- Other activities -->
         <activity android:name=".auth.activities.SignupActivity" />
@@ -63,12 +55,10 @@
         <activity android:name=".ui.activities.admin.EditDeleteWorkoutActivity" />
         <activity android:name=".ui.activities.admin.ViewUsersActivity" />
 
-        <receiver android:name=".ui.activities.local_notifications.ReminderReceiver"
+        <receiver
+            android:name=".ui.activities.local_notifications.ReminderReceiver"
             android:exported="false" />
 
-
     </application>
-
-<!--    just want to show demo for pushing to github-->
 
 </manifest>

@@ -1,9 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!-- Base Theme (Material 3, NoActionBar) -->
     <style name="Base.Theme.FinalProjectMobileApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Customize your light/dark theme colors here -->
+        <!-- Remove Android 12 splash screen settings below -->
+
+        <!-- OPTIONAL: You can define app-wide colors -->
+        <!-- <item name="colorPrimary">@color/your_primary_color</item> -->
+        <!-- <item name="colorSecondary">@color/your_secondary_color</item> -->
+        <!-- <item name="android:statusBarColor">@android:color/transparent</item> -->
+        <!-- <item name="android:navigationBarColor">@android:color/black</item> -->
     </style>
 
-    <style name="Theme.FinalProjectMobileApp" parent="Base.Theme.FinalProjectMobileApp" />
+    <!-- App Theme -->
+    <style name="Theme.FinalProjectMobileApp" parent="Base.Theme.FinalProjectMobileApp">
+        <!-- Intentionally left minimal to use Base Theme -->
+    </style>
+
 </resources>

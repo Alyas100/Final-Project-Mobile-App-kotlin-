@@ -9,8 +9,6 @@ import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragmen
 import com.example.finalprojectmobileapp.ui.activities.bottom_navigation.fragments.MoreFragmentPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
-// this activity contains bottom navigation bar, and then use Fragments to display the different pages (Dashboard, Diary, etc.)
 class CommonActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,19 +17,27 @@ class CommonActivity : AppCompatActivity() {
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 
-        // Set default fragment
-        replaceFragment(DashboardFragmentPage())
-
-        // Check if there's a destination passed from the other page
+        // Check for destination passed from SplashActivity or other Activity
         val destination = intent.getStringExtra("destination")
 
-        // Set the default fragment based on the destination
-        if (destination == "adminDashboard") {
-            replaceFragment(DashboardFragmentPage())
-            bottomNavigationView.selectedItemId = R.id.nav_dashboard
-        } else {
-            // Default to Dashboard if no destination is specified
-            replaceFragment(DashboardFragmentPage())
+        when (destination) {
+            "dashboard" -> {
+                replaceFragment(DashboardFragmentPage())
+                bottomNavigationView.selectedItemId = R.id.nav_dashboard
+            }
+            "add" -> {
+                replaceFragment(AddFragmentPage())
+                bottomNavigationView.selectedItemId = R.id.nav_add
+            }
+            "more" -> {
+                replaceFragment(MoreFragmentPage())
+                bottomNavigationView.selectedItemId = R.id.nav_more
+            }
+            else -> {
+                // Default to Dashboard if nothing is passed
+                replaceFragment(DashboardFragmentPage())
+                bottomNavigationView.selectedItemId = R.id.nav_dashboard
+            }
         }
 
         bottomNavigationView.setOnItemSelectedListener { item ->
