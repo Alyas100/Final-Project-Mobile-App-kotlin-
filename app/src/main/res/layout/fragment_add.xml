@@ -1,16 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/img"> <!-- Set background image -->
 
+    <!-- Top-level layout with Toolbar + Content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
+        <!-- Toolbar (fixed to top) -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -20,33 +23,36 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:navigationIcon="@drawable/hamburger_menu_icon" />
 
+        <!-- Content below the Toolbar with padding -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:padding="16dp">
 
             <Button
                 android:id="@+id/btnLogWorkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log Workout"/>
+                android:text="Log Workout"
+                android:backgroundTint="@color/blue_primary" /> <!-- Button color -->
 
             <Button
                 android:id="@+id/btnLogCalories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log Calories"/>
+                android:text="Log Calories"
+                android:backgroundTint="@color/blue_primary" /> <!-- Button color -->
 
         </LinearLayout>
-
     </LinearLayout>
 
+    <!-- Navigation drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/drawer_menu"/>
-
 </androidx.drawerlayout.widget.DrawerLayout>

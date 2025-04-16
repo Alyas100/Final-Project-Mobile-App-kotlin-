@@ -6,6 +6,16 @@
     android:padding="16dp"
     android:weightSum="1">
 
+    <!-- Back Arrow -->
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="Back"
+        android:layout_gravity="start"
+        android:padding="8dp" />
+
     <!-- Title -->
     <TextView
         android:layout_width="match_parent"
@@ -14,6 +24,8 @@
         android:textSize="24sp"
         android:paddingBottom="16dp"
         android:gravity="center" />
+
+
 
     <!-- General title-->
     <TextView

@@ -1,84 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:background="@android:color/black"
-    android:gravity="center"
-    tools:ignore="ExtraText">
+    android:background="@android:color/black">
 
-    <!-- Icon at the top left (larger size) -->
+    <!-- Back Arrow -->
+    <ImageView
+        android:id="@+id/backArrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="Back"
+        android:layout_gravity="start|top"
+        android:layout_margin="16dp"
+        android:padding="8dp" />
 
-    <!-- Title: Reminders -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set Your Reminders"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="24dp"
-        android:gravity="center" />
-
-    <!-- Catchy Text to guide the user -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Never miss an activity again! Customize your reminders to stay on track."
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="40dp"
+    <!-- Main content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
         android:gravity="center"
-        android:layout_marginTop="8dp" />
+        tools:ignore="ExtraText">
 
-    <!-- Activity (e.g., Breakfast) -->
-    <EditText
-        android:id="@+id/activityInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Activity (e.g., Breakfast)"
-        android:inputType="text"
-        android:background="@drawable/rounded_edittext"
-        android:padding="12dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"
-        android:maxWidth="350dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Your Reminders"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="24dp"
+            android:gravity="center" />
 
-    <!-- Time (e.g., 8:30 AM) -->
-    <EditText
-        android:id="@+id/timeInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Time (e.g., 8:30 AM)"
-        android:inputType="time"
-        android:background="@drawable/rounded_edittext"
-        android:padding="12dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/darker_gray"
-        android:layout_marginBottom="16dp"
-        android:textSize="16sp"
-        android:maxWidth="350dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Never miss an activity again! Customize your reminders to stay on track."
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
 
-    <!-- Save Button -->
-    <Button
-        android:id="@+id/saveReminderButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save Reminder"
-        android:backgroundTint="@color/fitnessGreen"
-        android:textColor="@android:color/white"
-        android:padding="16dp"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_background"
-        android:maxWidth="350dp"/>
+        <EditText
+            android:id="@+id/activityInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Activity (e.g., Breakfast)"
+            android:inputType="text"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:maxWidth="350dp"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/timeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Time (e.g., 8:30 AM)"
+            android:inputType="time"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
+            android:maxWidth="350dp"/>
 
+        <Button
+            android:id="@+id/saveReminderButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Reminder"
+            android:backgroundTint="@color/fitnessGreen"
+            android:textColor="@android:color/white"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_background"
+            android:maxWidth="350dp"/>
+    </LinearLayout>
 
-
+</FrameLayout>

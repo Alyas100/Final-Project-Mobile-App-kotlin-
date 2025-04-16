@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import com.example.finalprojectmobileapp.R
 import com.example.finalprojectmobileapp.analytics.FirebaseAnalyticsHelper
 import com.example.finalprojectmobileapp.auth.activities.LoginActivity
-import com.example.finalprojectmobileapp.ui.activities.ProfileActivity
 import com.example.finalprojectmobileapp.ui.activities.SettingsActivity
 import com.example.finalprojectmobileapp.ui.activities.ai.fragment.GeminiSidebarFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -22,14 +21,19 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 class DashboardFragmentPage : Fragment() {
 
     private lateinit var stepCountTextView: TextView
     private lateinit var calorieTextView: TextView
+    private lateinit var distanceTextView: TextView
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var youTubePlayerView: YouTubePlayerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,13 +46,27 @@ class DashboardFragmentPage : Fragment() {
         bundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "DashboardFragment")
         FirebaseAnalyticsHelper.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, bundle)
 
-        stepCountTextView = view.findViewById(R.id.stepCountTextView)
-        calorieTextView = view.findViewById(R.id.calorieTextView)
+        // CardView TextViews
+        stepCountTextView = view.findViewById(R.id.tvSteps)
+        calorieTextView = view.findViewById(R.id.tvCalories)
+        distanceTextView = view.findViewById(R.id.distanceTextView)
 
+        // YouTube PlayerView
+        youTubePlayerView = view.findViewById(R.id.youtubeWebView)
+        lifecycle.addObserver(youTubePlayerView)
+
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                val videoId = "aADukThvjXQ" // YouTube Video ID only
+                youTubePlayer.cueVideo(videoId, 0f)
+            }
+        })
+
+        // DrawerLayout and Toolbar
         drawerLayout = view.findViewById(R.id.drawer_layout)
         navView = view.findViewById(R.id.navigation_view)
-
         val toolbar: Toolbar = view.findViewById(R.id.toolbar)
+
         (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
 
         toggle = ActionBarDrawerToggle(requireActivity(), drawerLayout, toolbar, R.string.open, R.string.close)
@@ -59,7 +77,6 @@ class DashboardFragmentPage : Fragment() {
 
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-
                 R.id.nav_settings -> {
                     startActivity(Intent(requireContext(), SettingsActivity::class.java))
                     true
@@ -86,9 +103,7 @@ class DashboardFragmentPage : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)) {
-            return true
-        }
+        if (toggle.onOptionsItemSelected(item)) return true
 
         return when (item.itemId) {
             R.id.action_gemini -> {

@@ -35,11 +35,11 @@ class MoreFragmentPage : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_more_page, container, false)
 
-        // Setup toolbar
+        // 🎥 Set up Toolbar
         val toolbar: Toolbar = view.findViewById(R.id.toolbar)
         (requireActivity() as AppCompatActivity).setSupportActionBar(toolbar)
 
-        // Initialize drawer
+        // Set up the drawer layout and toggle
         drawerLayout = view.findViewById(R.id.drawer_layout)
         navView = view.findViewById(R.id.navigation_view)
 
@@ -52,7 +52,6 @@ class MoreFragmentPage : Fragment() {
         // Handle navigation menu item clicks
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-
                 R.id.nav_settings -> {
                     startActivity(Intent(requireContext(), SettingsActivity::class.java))
                     true
@@ -65,7 +64,7 @@ class MoreFragmentPage : Fragment() {
             }
         }
 
-        // Handle buttons
+        // Handle button clicks for navigating to Reminders and History activities
         view.findViewById<TextView>(R.id.reminders).setOnClickListener {
             startActivity(Intent(requireContext(), RemindersActivity::class.java))
         }
@@ -83,17 +82,20 @@ class MoreFragmentPage : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        // Inflate the menu with the Gemini icon
         inflater.inflate(R.menu.drawer_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle the action bar item clicks
         if (::toggle.isInitialized && toggle.onOptionsItemSelected(item)) {
             return true
         }
 
         return when (item.itemId) {
             R.id.action_gemini -> {
+                // Show Gemini Sidebar Fragment when the icon is clicked
                 val sidebar = GeminiSidebarFragment()
                 sidebar.show(parentFragmentManager, "GeminiSidebar")
                 true
@@ -103,6 +105,7 @@ class MoreFragmentPage : Fragment() {
     }
 
     private fun showLogoutConfirmationDialog() {
+        // Show a dialog confirming the logout
         AlertDialog.Builder(requireContext())
             .setTitle("Logout")
             .setMessage("Are you sure you want to log out?")
@@ -112,6 +115,7 @@ class MoreFragmentPage : Fragment() {
     }
 
     private fun performLogout() {
+        // Perform logout from Firebase and Google SignIn
         FirebaseAuth.getInstance().signOut()
 
         val googleSignInClient = GoogleSignIn.getClient(

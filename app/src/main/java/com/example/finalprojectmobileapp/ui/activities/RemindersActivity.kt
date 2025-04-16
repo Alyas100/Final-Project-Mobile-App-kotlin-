@@ -43,6 +43,11 @@ class RemindersActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        findViewById<ImageView>(R.id.backArrow).setOnClickListener {
+            finish()
+        }
+
+
         // Setup RecyclerView
         reminderRecyclerView = findViewById(R.id.reminderListRecyclerView)
         reminderRecyclerView.layoutManager = LinearLayoutManager(this)

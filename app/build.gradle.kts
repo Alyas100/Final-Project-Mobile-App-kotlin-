@@ -102,8 +102,11 @@ dependencies {
 
     implementation("com.google.android.material:material:1.12.0")
 
-    // added lottie library for render animations
-    implementation ("com.airbnb.android:lottie:6.4.0")
+
+    // youtube api dependency for adding yt vid
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0")
+
+
 
 
 

@@ -6,184 +6,187 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img">
+    android:background="@drawable/img"
+    tools:context=".ui.activities.bottom_navigation.fragments.DashboardFragmentPage">
 
-    <!-- Main Content -->
+    <!-- Main content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Toolbar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            android:title="Dashboard"
+            android:titleTextColor="@android:color/white"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:title="Fitness Dashboard"
             app:navigationIcon="@drawable/hamburger_menu_icon" />
 
-        <androidx.core.widget.NestedScrollView
+        <!-- Dashboard cards and YouTube player -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="16dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:animateLayoutChanges="true"
+            android:padding="8dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Steps Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/stepsCard"
+                android:layout_width="207dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginVertical="6dp"
+                app:cardBackgroundColor="@color/blue_light"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
 
-                <!-- Simple Text Stats -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🏃‍♂️ Fitness Dashboard"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <!-- Cards Row 1 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <!-- Steps -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
+                    <ImageView
+                        android:id="@+id/imgSteps"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Steps Icon"
+                        android:src="@drawable/ic_steps" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@color/blue_light">
+                        android:layout_marginTop="6dp"
+                        android:text="Steps"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Steps"
-                                android:layout_marginTop="8dp"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/tvSteps"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="5,375"
-                                android:textStyle="bold"
-                                android:textSize="24sp"
-                                android:layout_marginTop="4dp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <!-- Distance covered -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/tvSteps"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@color/blue_light">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Distance covered"
-                                android:layout_marginTop="8dp"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/distanceTextView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="0.00m"
-                                android:textStyle="bold"
-                                android:textSize="24sp"
-                                android:layout_marginTop="4dp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                        android:layout_marginTop="2dp"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <!-- Cards Row 2 -->
+            <!-- Distance Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/distanceCard"
+                android:layout_width="208dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp"
+                app:cardBackgroundColor="@color/blue_light"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <!-- Calories -->
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
+                    <ImageView
+                        android:id="@+id/imgDistance"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Distance Icon"
+                        android:src="@drawable/ic_distance" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_margin="8dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@color/blue_light">
+                        android:layout_marginTop="6dp"
+                        android:text="Distance"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Kcal"
-                                android:layout_marginTop="8dp"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/caloriesTextView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1,250"
-                                android:textStyle="bold"
-                                android:textSize="24sp"
-                                android:layout_marginTop="4dp" />
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-
-
-
+                    <TextView
+                        android:id="@+id/distanceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0.00 km"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <!-- Buttons -->
+            <!-- Calories Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/caloriesCard"
+                android:layout_width="208dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="6dp"
+                app:cardBackgroundColor="@color/blue_light"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    android:weightSum="2">
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
+                    <ImageView
+                        android:id="@+id/imgCalories"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Calories Icon"
+                        android:src="@drawable/ic_calories" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Calories"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCalories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="0"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <!-- YouTubePlayerView instead of WebView -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtubeWebView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black"
+                    app:autoPlay="false"
+                  />
+            </FrameLayout>
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Navigation Drawer -->
+    <!-- Navigation Drawer Menu -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/drawer_menu" />
+        app:menu="@menu/drawer_menu"/>
 </androidx.drawerlayout.widget.DrawerLayout>

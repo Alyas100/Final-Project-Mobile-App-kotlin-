@@ -22,17 +22,11 @@ class AdminDashboardActivity : AppCompatActivity() {
             startActivity(Intent(this, ViewUsersActivity::class.java))
         }
 
-        findViewById<Button>(R.id.btnViewUserWorkouts).setOnClickListener {
-            startActivity(Intent(this, ViewUserWorkoutsActivity::class.java))
-        }
 
         findViewById<Button>(R.id.btnDeleteUsers).setOnClickListener {
             startActivity(Intent(this, DeleteUserActivity::class.java))
         }
 
-        findViewById<Button>(R.id.btnEditOrDeleteWorkouts).setOnClickListener {
-            startActivity(Intent(this, EditDeleteWorkoutActivity::class.java))
-        }
 
         findViewById<Button>(R.id.btnLogout).setOnClickListener {
             logoutAdmin()

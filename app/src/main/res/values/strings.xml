@@ -5,4 +5,8 @@
 <!--    these two below for accessibility for screen reader, hints or etc, it used by ActionBarDrawerToggle-->
     <string name="open">Open Navigation</string>
     <string name="close">Close Navigation</string>
+
+    <!-- res/values/strings.xml -->
+    <string name="admin_email">admin120@gmail.com</string>
+
 </resources>

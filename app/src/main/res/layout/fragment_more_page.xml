@@ -6,16 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Main content -->
+    <!-- Container with Toolbar + Main content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@android:color/black"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:orientation="vertical">
 
-        <!-- Toolbar -->
+        <!-- Toolbar at the top -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -26,75 +23,89 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:navigationIcon="@drawable/hamburger_menu_icon" />
 
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:text="More"
-            android:textColor="@android:color/white"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
-        <!-- Description -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Below are 2 other functions that can ease your fitness and healthy life."
-            android:textSize="18sp"
-            android:textColor="@android:color/white"
-            android:gravity="center"
-            android:layout_marginBottom="32dp"
-            android:layout_marginTop="8dp" />
-
-        <!-- Reminders Card -->
-        <androidx.cardview.widget.CardView
+        <!-- Main content under the toolbar -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            android:backgroundTint="@android:color/holo_green_light">
+            android:layout_height="match_parent"
+            android:background="@android:color/black"
+            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/reminders"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reminders"
-                android:drawableStart="@android:drawable/ic_lock_idle_alarm"
-                android:drawablePadding="12dp"
-                android:padding="16dp"
-                android:textSize="20sp"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical" />
-        </androidx.cardview.widget.CardView>
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
 
-        <!-- History Card -->
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            android:backgroundTint="@android:color/holo_green_light">
+                <!-- Title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:text="More"
+                    android:textColor="@android:color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/history"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="History"
-                android:drawableStart="@android:drawable/ic_menu_recent_history"
-                android:drawablePadding="12dp"
-                android:padding="16dp"
-                android:textSize="20sp"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical" />
-        </androidx.cardview.widget.CardView>
+                <!-- Description -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Below are 2 other functions that can ease your fitness and healthy life."
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginTop="8dp" />
 
+                <!-- Reminders Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/holo_green_light">
+
+                    <TextView
+                        android:id="@+id/reminders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Reminders"
+                        android:drawableStart="@android:drawable/ic_lock_idle_alarm"
+                        android:drawablePadding="12dp"
+                        android:padding="16dp"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical" />
+                </androidx.cardview.widget.CardView>
+
+                <!-- History Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    android:backgroundTint="@android:color/holo_green_light">
+
+                    <TextView
+                        android:id="@+id/history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="History"
+                        android:drawableStart="@android:drawable/ic_menu_recent_history"
+                        android:drawablePadding="12dp"
+                        android:padding="16dp"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
     <!-- Navigation drawer -->
