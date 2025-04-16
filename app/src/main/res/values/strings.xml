@@ -2,7 +2,11 @@
     <string name="app_name">FinalProjectMobileApp</string>
     <string name="default_web_client_id">54170183508-riu1i1urm558…s.googleusercontent.com</string>
 
-<!--    these two below for accessibility for screen reader, hints or etc, it used by ActionBarDrawerToggle-->
+    <!--    these two below for accessibility for screen reader, hints or etc, it used by ActionBarDrawerToggle-->
     <string name="open">Open Navigation</string>
     <string name="close">Close Navigation</string>
+
+    <!-- res/values/strings.xml -->
+    <string name="admin_email">admin120@gmail.com</string>
+
 </resources>

@@ -1,103 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@android:color/black"
-    tools:ignore="ExtraText">
+    android:background="@drawable/img"
+    android:fillViewport="true">
 
-    <!-- Title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My History"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="16dp"
-        android:textColor="@android:color/white"/>
-
-    <!-- Workout History Section -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Workout History"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"
-        android:textColor="@android:color/white"/>
-
-    <!-- Workout History RecyclerView -->
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginBottom="16dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvWorkoutHistory"
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My History"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"
+            android:textColor="@android:color/white" />
+
+        <!-- Workout History Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workout History"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@android:color/white" />
+
+        <!-- Workout History RecyclerView -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:clipToPadding="false"
-            android:background="?android:attr/colorBackground" />
-    </androidx.cardview.widget.CardView>
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp">
 
-    <!-- Add Workout Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddWorkout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add More Workouts"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@android:color/holo_green_light"
-        android:padding="12dp"
-        android:layout_marginBottom="24dp"
-        style="@style/ButtonShape" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWorkoutHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:clipToPadding="false"
+                android:background="?android:attr/colorBackground" />
+        </androidx.cardview.widget.CardView>
 
-    <!-- Calorie History Section -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calorie History"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:textColor="@android:color/white"/>
-
-    <!-- Calorie History RecyclerView -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginBottom="16dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvCalorieHistory"
+        <!-- Add Workout Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddWorkout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:clipToPadding="false"
-            android:background="?android:attr/colorBackground" />
-    </androidx.cardview.widget.CardView>
+            android:minHeight="48dp"
+            android:text="Add More Workouts"
+            android:backgroundTint="@color/blue_primary"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
 
-    <!-- Add Calories Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddCalories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add More Calories"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@android:color/holo_green_light"
-        android:padding="12dp"
-        android:layout_marginBottom="24dp"
-        style="@style/ButtonShape" />
-</LinearLayout>
+        <!-- Calorie History Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calorie History"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@android:color/white" />
+
+        <!-- Calorie History RecyclerView -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="16dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCalorieHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:clipToPadding="false"
+                android:background="?android:attr/colorBackground" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Add Calories Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Add More Calories"
+            android:backgroundTint="@color/blue_primary"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>

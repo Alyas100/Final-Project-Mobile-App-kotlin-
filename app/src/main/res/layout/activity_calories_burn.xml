@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp">
@@ -10,25 +11,41 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0FFFFFF"
+        android:inputType="text"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/white"
         android:text="Calorie Tracker"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
     <!-- Distance Display -->
+
+    <!-- Step Count Display -->
     <TextView
         android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0FFFFFF"
+        android:inputType="text"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/white"
+        android:layout_marginBottom="10dp"
         android:text="Distance: 0.00 meters"
-        android:textSize="18sp"
-        android:layout_marginBottom="10dp"/>
+        android:textSize="18sp" />
 
-    <!-- Step Count Display -->
     <TextView
         android:id="@+id/stepCountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0FFFFFF"
+        android:inputType="text"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/white"
         android:text="Steps: 0"
         android:textSize="18sp"
         android:layout_marginBottom="10dp"/>

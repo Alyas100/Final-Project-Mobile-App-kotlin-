@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img"
     android:orientation="vertical"
     android:padding="16dp"
     android:weightSum="1">
@@ -10,6 +11,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0FFFFFF"
+        android:inputType="text"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/white"
         android:text="Your Reminders"
         android:textSize="24sp"
         android:paddingBottom="16dp"
@@ -20,7 +26,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Meals"
-        android:textColor="#000000"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0FFFFFF"
+        android:inputType="text"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -29,7 +39,12 @@
         android:id="@+id/reminderListRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0FFFFFF"
+        android:inputType="text"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/white" />
 
     <!-- Add Reminder Button (Plus Icon) -->
     <ImageView

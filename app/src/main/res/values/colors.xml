@@ -32,4 +32,5 @@
 
     <!-- Gray Dark Color -->
     <color name="gray_dark">#212121</color> <!-- Dark Gray Color -->
+    <color name="red_primary">#F44336</color>
 </resources>

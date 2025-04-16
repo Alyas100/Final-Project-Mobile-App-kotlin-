@@ -67,7 +67,7 @@ class GeminiSidebarFragment : DialogFragment() {
         super.onStart()
         dialog?.window?.apply {
             // Adjust the layout to make the sidebar appear from the right
-            setLayout((resources.displayMetrics.widthPixels * 0.45).toInt(), ViewGroup.LayoutParams.MATCH_PARENT)
+            setLayout((resources.displayMetrics.widthPixels * 0.90).toInt(), ViewGroup.LayoutParams.MATCH_PARENT)
             setGravity(Gravity.END)
         }
     }

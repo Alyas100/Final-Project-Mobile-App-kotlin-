@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -9,8 +10,12 @@
         android:id="@+id/txtUsers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Loading users..."
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:hint="Loading Users...."
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0FFFFFF"
+        android:inputType="text"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/white"
+        android:layout_marginBottom="24dp" />
 
 </LinearLayout>

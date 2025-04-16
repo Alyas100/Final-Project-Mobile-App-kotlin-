@@ -26,7 +26,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Breakfast"
-                android:textColor="#000000"
+                android:textColor="@android:color/white"
+                android:textColorHint="#B0FFFFFF"
+                android:inputType="text"
+                android:padding="12dp"
+                android:backgroundTint="@android:color/white"
                 android:textSize="15sp" />
 
             <!-- Reminder Time -->
@@ -35,7 +39,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10:13 AM"
-                android:textColor="#CCCCCC"
+                android:textColor="@android:color/white"
+                android:textColorHint="#B0FFFFFF"
+                android:inputType="text"
+                android:padding="12dp"
+                android:backgroundTint="@android:color/white"
                 android:textSize="14sp" />
         </LinearLayout>
 

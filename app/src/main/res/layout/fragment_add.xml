@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/img">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,11 +14,11 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
+            android:layout_width="392dp"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:title="Add"
+            android:background="@color/blue_primary_dark"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:title="Add"
             app:navigationIcon="@drawable/hamburger_menu_icon" />
 
         <LinearLayout
@@ -30,13 +31,15 @@
                 android:id="@+id/btnLogWorkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log Workout"/>
+                android:text="Log Workout"
+                android:backgroundTint="@color/blue_primary"/>
 
             <Button
                 android:id="@+id/btnLogCalories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log Calories"/>
+                android:text="Log Calories"
+                android:backgroundTint="@color/blue_primary"/>
 
         </LinearLayout>
 

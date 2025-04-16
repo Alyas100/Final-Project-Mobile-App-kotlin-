@@ -1,15 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chatSidebar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#121212"
+    android:padding="16dp"
+    android:gravity="bottom">
 
-    <!-- ScrollView to make chatOutput scrollable -->
+    <!-- Scrollable Chat Display -->
     <ScrollView
+        android:id="@+id/chatScroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:overScrollMode="ifContentScrolls">
 
         <LinearLayout
+            android:id="@+id/chatMessagesContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -18,29 +26,57 @@
                 android:id="@+id/chatOutput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:scrollbars="vertical" />
         </LinearLayout>
     </ScrollView>
 
-    <!-- EditText and Buttons for user input -->
+    <!-- User Input -->
     <EditText
         android:id="@+id/chatInput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Type your message"
-        android:padding="16dp" />
+        android:layout_height="48dp"
+        android:hint="Type your message..."
+        android:background="@drawable/edittext_background"
+        android:textColor="@android:color/white"
+        android:textColorHint="#BBBBBB"
+        android:textSize="14sp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
 
-    <Button
-        android:id="@+id/sendButton"
+    <!-- Buttons Container -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
 
-    <Button
-        android:id="@+id/btnGetAISuggestion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Get AI Suggestion" />
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Send"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/btnGetAISuggestion"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Get AI Suggestion"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
 </LinearLayout>
+
+
